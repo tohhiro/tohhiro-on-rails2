@@ -1,31 +1,16 @@
-version: "3.8"
-
 services:
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    command: tail -f /dev/null
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
-      - db_data:/app/db
     ports:
       - "3000:3000"
     environment:
       - RAILS_ENV=development
-      - DATABASE_URL=sqlite3:db/development.sqlite3
     stdin_open: true
     tty: true
-    depends_on:
-      - db
-
-  db:
-    image: alpine:latest
-    command: tail -f /dev/null
-    volumes:
-      - db_data:/data
-    environment:
-      - DATABASE_TYPE=sqlite3
 
 volumes:
   bundle_cache:
-  db_data:
