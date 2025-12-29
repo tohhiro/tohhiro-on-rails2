@@ -1,75 +1,24 @@
-# Rails + SQLite3 Docker環境
+# README
 
-Ruby on RailsとSQLite3が動作するDocker開発環境です。
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## 必要なもの
+Things you may want to cover:
 
-- Docker
-- Docker Compose
+* Ruby version
 
-## セットアップ手順
+* System dependencies
 
-### 1. Docker環境を構築
+* Configuration
 
-```bash
-docker compose up --build -d
-```
+* Database creation
 
-これでRailsとSQLite3が使える環境が構築されます。
+* Database initialization
 
-### 2. Railsアプリケーションを作成
+* How to run the test suite
 
-```bash
-docker compose exec web rails new . --database=sqlite3 --skip-git --force
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-または、Makefileを使う場合：
+* Deployment instructions
 
-```bash
-make exec CMD="rails new . --database=sqlite3 --skip-git --force"
-```
-
-### 3. bundle installを実行
-
-```bash
-docker compose exec web bundle install
-```
-
-### 4. データベースを作成
-
-```bash
-docker compose exec web rails db:create
-```
-
-### 5. Railsサーバーを起動
-
-```bash
-docker compose exec web rails s -b '0.0.0.0'
-```
-
-### 6. ブラウザでアクセス
-
-http://localhost:3000 にアクセスして、Railsアプリケーションが動作していることを確認します。
-
-## よく使うコマンド
-
-Makefileに便利なコマンドをまとめています。
-
-```bash
-make help           # コマンド一覧を表示
-make up             # コンテナを起動
-make down           # コンテナを停止
-make logs           # ログを表示
-make shell          # コンテナのシェルに入る
-make console        # Railsコンソールを起動
-make db-migrate     # マイグレーションを実行
-make db-seed        # シードデータを投入
-```
-
-## ファイル構成
-
-- `Dockerfile` - RubyとSQLite3の環境定義
-- `docker-compose.yml` - コンテナ起動設定
-- `Gemfile` - Rails gemの定義
-- `Makefile` - 便利コマンド集
-- `.dockerignore` - Docker用除外設定
+* ...
