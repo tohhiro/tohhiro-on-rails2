@@ -1,0 +1,60 @@
+# Rails関連
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# データベース
+*.sqlite3
+*.sqlite3-*
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/*.sqlite3-*
+
+# 環境変数・秘密情報
+.env
+.env.*
+config/master.key
+config/credentials/*.key
+
+# キャッシュ・一時ファイル
+/tmp/cache/*
+/tmp/pids/*
+/tmp/sockets/*
+/tmp/storage/*
+!/tmp/cache/.keep
+!/tmp/pids/.keep
+!/tmp/sockets/.keep
+!/tmp/storage/.keep
+
+# アセット関連
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+
+# IDE・エディタ設定
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有
+.DS_Store
+Thumbs.db
+
+# Storage
+/storage/*
+!/storage/.keep
+
+# Bundler
+.bundle
+
+# JavaScript
+npm-debug.log*
+
+# Test coverage
+/coverage/
