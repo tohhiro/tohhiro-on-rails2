@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :posts, only: [:index, :new, :create]
+  # 方法1: onlyで6つ列挙
+  # resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  # 方法2: exceptでshowを除外（シンプル）
+  resources :posts, except: [:show]
 end
