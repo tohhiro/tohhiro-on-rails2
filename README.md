@@ -45,6 +45,14 @@ docker compose exec web rails db:create
 ### 5. Rails サーバーを起動
 
 ```bash
+# PIDファイルをクリーンしてから起動（推奨）
+make server
+```
+
+または手動で起動する場合：
+
+```bash
+rm -f tmp/pids/server.pid
 docker compose exec web rails s -b '0.0.0.0'
 ```
 
@@ -60,6 +68,8 @@ Makefile に便利なコマンドをまとめています。
 make help           # コマンド一覧を表示
 make up             # コンテナを起動
 make down           # コンテナを停止
+make server         # Railsサーバーを起動（PIDクリーン込み）
+make clean-pid      # PIDファイルをクリーン
 make logs           # ログを表示
 make shell          # コンテナのシェルに入る
 make console        # Railsコンソールを起動

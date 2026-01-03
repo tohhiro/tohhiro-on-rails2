@@ -67,5 +67,12 @@ console: ## Railsコンソールを起動
 routes: ## ルート一覧を表示
 	docker compose exec web rails routes
 
+server: ## Railsサーバーを起動（PIDファイルをクリーンしてから）
+	rm -f tmp/pids/server.pid
+	docker compose exec web rails s -b '0.0.0.0'
+
+clean-pid: ## PIDファイルをクリーン
+	rm -f tmp/pids/server.pid
+
 assets-precompile: ## アセットをプリコンパイル
 	docker compose exec web rails assets:precompile
